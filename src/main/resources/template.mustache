@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body onload = "initializeTagList()">
+    <h1>LINKS</h1>
+    <h3>tags</h3>
+        <div id="controls">
+            <input type="radio" id="show" name="dir" onclick="showDirectory(true);" checked="checked">
+            <label for="show">show</label>
+            <input type="radio" id="hide" name="dir" onclick="showDirectory(false);">
+            <label for="hide">hide</label>
+        </div>
+
+        <div id="directory">
+            <ul id="allTags">
+            </ul>
+        </div>
+
+        <div id="linklist">
+            {{#links}}
+                <div class="link">
+                    {{#urls}}
+                        <a href="{{url}}">{{url}}</a><br>
+                    {{/urls}}
+                    <blockquote>{{description}}</blockquote>
+                    <ul class="tagList">
+                        {{#tags}}
+                            <li class="linkTag" onclick="handleTagClick(this)">{{tag}}</li>
+                        {{/tags}}
+                    </ul>
+                </div>
+            {{/links}}
+        </div>
+    </body>
+</html>
